@@ -40,10 +40,9 @@ app.use(`${API_URL}/carts`, cartRoutes)
 app.use(`${API_URL}/orders`, orderRoutes)
 app.use(`${API_URL}/checkout`, stripeRoutes)
 
-
-
-
-
+app.get('/', (req, res) => {
+    res.send('hello to maria api')
+})
 
 mongoose.connect(process.env.CONNECTION_URL).then(() => {
     app.listen(PORT, () => {
