@@ -1,7 +1,8 @@
 import jwt from 'express-jwt'
-
+import dotenv from 'dotenv'
 
 export default function authJwt() {
+    dotenv.config()
     const secret = process.env.secret
     const api = process.env.API_URL
 
