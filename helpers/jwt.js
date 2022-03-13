@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 export default function authJwt() {
     dotenv.config()
-    const secret = process.env.secret
+    const secret = process.env.SECRET
     const api = process.env.API_URL
 
     return jwt({
