@@ -25,6 +25,11 @@ const API_URL = process.env.API_URL
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json())
+
+app.get('/', (req, res) => {
+    res.send('hello to maria api')
+})
+
 app.use(authJwt())
 app.use(errorHandler)
 // app.use(
@@ -32,17 +37,15 @@ app.use(errorHandler)
 //     express.static(__dirname + "/public/uploads")
 // );
 
-app.use(`${API_URL}/auth`, authRoutes)
-app.use(`${API_URL}/users`, userRoutes)
-app.use(`${API_URL}/categories`, categoryRoutes)
-app.use(`${API_URL}/products`, productRoutes)
-app.use(`${API_URL}/carts`, cartRoutes)
-app.use(`${API_URL}/orders`, orderRoutes)
-app.use(`${API_URL}/checkout`, stripeRoutes)
+app.use(`/auth`, authRoutes)
+app.use(`/users`, userRoutes)
+app.use(`/categories`, categoryRoutes)
+app.use(`/products`, productRoutes)
+app.use(`/carts`, cartRoutes)
+app.use(`/orders`, orderRoutes)
+app.use(`/checkout`, stripeRoutes)
 
-app.get('/', (req, res) => {
-    res.send('hello to maria api')
-})
+
 
 mongoose.connect(process.env.CONNECTION_URL).then(() => {
     app.listen(PORT, () => {

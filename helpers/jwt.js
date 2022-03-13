@@ -12,7 +12,6 @@ export default function authJwt() {
         //  isRevoked: isRevoked
     }).unless({
         path: [
-            { url: /\/api\/v1\//, methods: ['GET', 'OPTIONS'] },
             { url: /\/api\/v1\/products(.*)/, methods: ['GET', 'OPTIONS'] },
             { url: /\/api\/v1\/categories(.*)/, methods: ['GET', 'OPTIONS'] },
             { url: `${api}/carts`, methods: ['POST', 'OPTIONS'] },
